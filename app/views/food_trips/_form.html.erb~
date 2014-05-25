@@ -1,0 +1,23 @@
+<hr>
+<%= form_for food_trip do |f| %>
+	<div>Food</div>
+	<%= f.text_field :food %>
+	<div>Price</div>
+	<%= f.text_field :price %>
+	<div>Store Location</div>
+	<%= f.text_area :store_location %>
+	<div>Date Visited</div>
+	<%= f.date_select :date_visited %>
+	<div>Food Review</div>
+	<%= f.text_area :review %>
+	<div>Rate the Food</div>
+	<div><i>Rate from 1-10 (10 being the highest)</i></div>
+	<%= f.text_field :rating_food %>
+	<div>Rate the Place</div>
+	<div><i>Rate from 1-10 (10 being the highest)</i></div>
+	<%= f.text_field :rating_place %>
+	<div>Food/Store Images</div>
+	<%= f.text_field :image %>
+	<hr>
+	<%= f.submit "Save" %>
+<% end %>

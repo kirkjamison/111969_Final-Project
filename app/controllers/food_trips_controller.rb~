@@ -1,0 +1,53 @@
+class FoodTripsController < ApplicationController
+
+	def index
+		@food_trips = FoodTrip.all
+	end
+
+	def about
+		render :about
+	end
+	
+	def new
+		@food_trip = FoodTrip.new
+	end
+	
+	def create
+		@food_trip = FoodTrip.new(food_trip_params)
+		if @food_trip.save
+			redirect_to food_trips_path
+		else
+			@message = @food_trip.errors.messages
+			render :new
+		end
+	end
+
+	def edit
+		@food_trip = FoodTrip.find(params[:id])
+	end
+	
+	def update
+		@food_trip = FoodTrip.find(params[:id])
+		if @food_trip.update(food_trip_params)
+			redirect_to food_trips_path
+		else
+			@message = @food_trip.errors.messages
+			render :edit
+		end
+	end
+
+	def show
+		@food_trip = FoodTrip.find(params[:id])
+	end
+
+	def destroy
+		@food_trip = FoodTrip.find(params[:id])
+		@food_trip.destroy
+		redirect_to food_trips_path
+	end
+
+	def food_trip_params
+		params.require(:food_trip).permit!
+	end
+
+end

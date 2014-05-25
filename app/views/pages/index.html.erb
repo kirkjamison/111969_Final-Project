@@ -1,0 +1,12 @@
+<br>
+<hr>
+<div>
+<center><h1><blink>Welcome to the Food Trip Blog!</blink></h1></center>
+</div>
+<br><br>
+<div>
+<h3>Latest Food Trips</h3>
+<% @latest_food_trips.each do |f| %>
+	<%= render partial: "food_trips/food_trip", locals: { food_trip: f } %>
+<% end %>
+</div>

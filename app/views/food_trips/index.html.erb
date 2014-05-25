@@ -1,0 +1,31 @@
+<hr>
+<br><br>
+<div class="container">
+
+      <div class="admin">
+	<div class="span9">
+        <h3><center>Food Trips</center></h3>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td>Name</td>
+              <td>Price</td>
+            </tr>
+          </thead>
+          <tbody>
+          <% @food_trips.each do |food_trip| %>
+            <tr>
+              <td><%= food_trip.food %></td>
+              <td><%= food_trip.price %></td>
+	      <td><%= link_to "View Blog", food_trip_path(food_trip.id), method: :get %></td>
+	      <td><%= link_to "Edit", edit_food_trip_path(food_trip.id) %></td>
+	      <td><%= link_to "Delete", food_trip_path(food_trip.id), method: :delete, data: { confirm: "Are you sure?" } %></td>
+           </tr>
+			<% end %>          
+	</tbody>          
+        </table>
+        <center><a href="/food_trips/new" class="btn btn-default">Create New Post</a></center>
+	</div>
+      </div>
+</div><!-- /.container -->
+<hr>

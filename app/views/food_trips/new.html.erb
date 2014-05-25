@@ -1,0 +1,9 @@
+<hr>
+<br><br>
+<h3>New Food Trip Blog Post</h3>
+
+<% if !@message.nil? %>
+	<%= @message %>
+<% end %>
+<%= render partial: "food_trips/form", locals: { food_trip: @food_trip } %>
+
